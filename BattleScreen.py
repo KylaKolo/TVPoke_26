@@ -4,7 +4,7 @@ from PyUI.PageElements import *
 
 class BattleScreen(Screen):
     def __init__(self, window):
-        super().__init__(window, (25, 255, 40))
+        super().__init__(window, (55, 118, 171))
 
     def addTrainers(self, trainer1Poke, trainer2Poke):
         self.trainers = [
@@ -13,7 +13,7 @@ class BattleScreen(Screen):
         ]
         
     def elementsToDisplay(self):
-        self.elements = []
+        self.elements = [Image((50, 50), 100, 100, "./imgs/feild.jpg" )]
 
         y = 0
         #two rows of three
@@ -24,8 +24,12 @@ class BattleScreen(Screen):
                 x += 100/4
                 self.elements.append(Image((x, y), 20, 20, poke.img))
                 self.elements.append(Label((x, y + 10), 20, 10, poke.name))
-                
+        x = 15
+        y = 80
+        for move in self.trainers[0].pokemon[0].moves:
+            self.elements.append(Label((x, y), 20, 10, move.name))
+            y -= 15
+            
+                                
 
-
-
-
+#"./TVPoke_26/img/feild.jpg"  
